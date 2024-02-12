@@ -17,7 +17,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            position: relative;
             margin: 0;
         }
         
@@ -30,7 +29,7 @@
             height: 50vh;
             top: 30%;
             box-sizing: border-box;
-            box-shadow: 2px 2px 5px black;
+            box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
             border-radius: 5%;
             transition: 0.5s linear;
             transform-origin: 0% 0%;
@@ -48,6 +47,7 @@
             top: 35%;
             transition: 0.5s linear;
             mix-blend-mode: plus-darker;
+            filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
         }
         .b {
             position: absolute;
@@ -66,18 +66,16 @@
             margin: 0;
             outline: none;
             text-align: center;
-            vertical-align: middle;
             width: 80px;
-            box-shadow: 3px 3px 5px rgb(73, 73, 73);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
             transform: translate(-50%, -50%);
             left: 50%;
-            letter-spacing: 1px;
         }
         .b:hover {
             width: 16vh;
             height: 6vh;
             border-radius: 18px;
-            font-size: 23px;
+            font-size: 22px;
         }
         #next, #next2 {
             display: none;
@@ -91,26 +89,82 @@
         }
         p {
             position: absolute;
+            color: rgba(0, 0, 0, 0.2);
             top: -8%;
-            font-size: 5vh;
+            font-size: 5.3vh;
             font-family: 'Times New Roman', Times, serif;
             transition-delay: 0.7s;
+            -webkit-text-stroke: 1px rgb(0, 0, 0);
         }
-
+        .heart {
+            display: none;
+            position: absolute;
+            width: 5vh;
+            aspect-ratio: 1;
+            left: 8%;
+            top: 20%;
+            opacity: 0.5;
+            animation: up 1.5s ease-in forwards;
+            transform: translate(-50%, -50%);
+            animation-delay: 0.5s;
+        }
+        @keyframes up {
+            0%, 40%, 80% {
+                transform: translateX(-30%);
+                width: 10vh;
+            }
+            20%, 60%, 100% {
+                transform: translateX(0);
+            }
+            from { top: 20%; width: 1vh;}
+            to { top: -100%; rotate: 30deg; left: 40%; width: 10vh; display: none;}
+        }
+        #hp2 {
+            animation-name: up2;
+        }
+        @keyframes up2 {
+            0%, 40%, 80% {
+                transform: translateX(-30%);
+                width: 10vh;
+            }
+            20%, 60%, 100% {
+                transform: translateX(0);
+            }
+            from { top: 45%; width: 1vh;}
+            to { top: -100%; rotate: 30deg; left: 40%; width: 10vh; display: none;}
+        }
+        #hp3 {
+            animation-name: up3;
+        }
+        @keyframes up3 {
+            0%, 40%, 80% {
+                transform: translateX(-30%);
+                width: 10vh;
+            }
+            20%, 60%, 100% {
+                transform: translateX(0);
+            }
+            from { top: 55%; left: 30%; width: 1vh;}
+            to { top: -100%; rotate: 30deg; left: 50%; width: 10vh; display: none;}
+        }
     </style>
 </head>
 <body>
     <div class="page" id="p3">
         <img class="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxX463z-lIkYAfkQ2049iI8KJjSumwY2PTPjITpt_1-SvUd3D7DgdpwCh-KFz-PIzHiCg&usqp=CAU" alt="">
+        <img class="heart" id="hp3" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p2">
         <img class="pic" src="https://penmanila.files.wordpress.com/2023/07/dea3cwrv0aamnzt.jpg" alt="">
+        <img class="heart" id="hp2" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p1">
         <img class="pic" src="https://i.pinimg.com/originals/af/85/67/af8567110396b1d2137b02898dfae29c.jpg" alt="">
+        <img class="heart" id="hp1" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="cover">
         <p id="text"><b>Love Message</b></p>
+        
     </div>
     
     
@@ -131,7 +185,9 @@
     let next = document.querySelector("#next");
     let next2 = document.querySelector("#next2");
     let text = document.querySelector("#text");
-
+    let heart = document.querySelector("#hp1");
+    let heart2 = document.querySelector("#hp2");
+    let heart3 = document.querySelector("#hp3");
 
     open.onclick = function(){
         rose.style.transform = "translateX(-160%)";
@@ -140,16 +196,18 @@
         open.style.display = "none";
         next.style.display = "block";
         text.style.opacity = "0%";
-
+        heart.style.display = "block";
     }
     next.onclick = function(){
         p1.style.transform = "scaleX(-1)";
         next.style.display = "none";
         next2.style.display = "block";
+        heart2.style.display = "block";
     }
     next2.onclick = function(){
         p2.style.transform = "scaleX(-1)";
         next2.style.display = "none";
+        heart3.style.display = "block";
     }
 
 </script>
