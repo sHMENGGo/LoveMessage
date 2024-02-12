@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/premium-photo/old-wood-texture-can-be-use-as-background_35652-2864.jpg?size=626&ext=jpg&ga=GA1.2.384784608.1707165916&semt=ais");
+            background-repeat: no-repeat;
+            background-size: 120% 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            background-blend-mode: darken;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            margin: 0;
+        }
+        
+        
+        
+        .page {
+            position: absolute;
+            background-image: url("https://img.freepik.com/free-photo/brown-paper-text-space_53876-95444.jpg?size=626&ext=jpg&ga=GA1.2.384784608.1707165916&semt=ais");
+            width: 40vh;
+            height: 50vh;
+            top: 30%;
+            box-sizing: border-box;
+            box-shadow: 2px 2px 5px black;
+            border-radius: 5%;
+            transition: 0.5s linear;
+            transform-origin: 0% 0%;
+            transition-delay: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .rose {
+            position: absolute;
+            width: 30vh;
+            object-fit: cover;
+            rotate: 50deg;
+            top: 35%;
+            transition: 0.5s linear;
+            mix-blend-mode: plus-darker;
+        }
+        .b {
+            position: absolute;
+            width: 15vh;
+            height: 5vh;
+            cursor: pointer;
+            top: 90%;
+            background-color: #be5c00;
+            border: solid transparent;
+            border-radius: 16px;
+            box-sizing: border-box;
+            color: #fff0d8;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            outline: none;
+            text-align: center;
+            vertical-align: middle;
+            width: 80px;
+            box-shadow: 3px 3px 5px rgb(73, 73, 73);
+            transform: translate(-50%, -50%);
+            left: 50%;
+            letter-spacing: 1px;
+        }
+        .b:hover {
+            width: 16vh;
+            height: 6vh;
+            border-radius: 18px;
+            font-size: 23px;
+        }
+        #next, #next2 {
+            display: none;
+        }
+        .pic {
+            position: absolute;
+            width: 35vh;
+            height: 45vh;
+            border-radius: 5%;
+            mix-blend-mode: hard-light;
+        }
+        p {
+            position: absolute;
+            top: -8%;
+            font-size: 5vh;
+            font-family: 'Times New Roman', Times, serif;
+            transition-delay: 0.7s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page" id="p3">
+        <img class="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxX463z-lIkYAfkQ2049iI8KJjSumwY2PTPjITpt_1-SvUd3D7DgdpwCh-KFz-PIzHiCg&usqp=CAU" alt="">
+    </div>
+    <div class="page" id="p2">
+        <img class="pic" src="https://penmanila.files.wordpress.com/2023/07/dea3cwrv0aamnzt.jpg" alt="">
+    </div>
+    <div class="page" id="p1">
+        <img class="pic" src="https://i.pinimg.com/originals/af/85/67/af8567110396b1d2137b02898dfae29c.jpg" alt="">
+    </div>
+    <div class="page" id="cover">
+        <p id="text"><b>Love Message</b></p>
+    </div>
+    
+    
+    
+    <img class="rose" src="https://clipart-library.com/images/piodeo5ET.png" alt="">
+    <button class="b" id="open"><b>OPEN</b></button>
+    <button class="b" id="next">NEXT</button>
+    <button class="b" id="next2">NEXT</button>
+</body>
+
+<script>
+
+    let cover = document.querySelector("#cover");
+    let p1 = document.querySelector("#p1");
+    let p2 = document.querySelector("#p2");
+    let rose = document.querySelector(".rose");
+    let open = document.querySelector("#open");
+    let next = document.querySelector("#next");
+    let next2 = document.querySelector("#next2");
+    let text = document.querySelector("#text");
+
+
+    open.onclick = function(){
+        rose.style.transform = "translateX(-160%)";
+        rose.style.rotate = "80deg";
+        cover.style.transform = "scaleX(-1)";
+        open.style.display = "none";
+        next.style.display = "block";
+        text.style.opacity = "0%";
+
+    }
+    next.onclick = function(){
+        p1.style.transform = "scaleX(-1)";
+        next.style.display = "none";
+        next2.style.display = "block";
+    }
+    next2.onclick = function(){
+        p2.style.transform = "scaleX(-1)";
+        next2.style.display = "none";
+    }
+
+</script>
+
+</html>
