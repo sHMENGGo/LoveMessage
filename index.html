@@ -232,6 +232,9 @@
     let heart2 = document.querySelector("#hp2");
     let heart3 = document.querySelector("#hp3");
 
+    const audio = new Audio("Josh Hutcherson Whistle (mini loop).mp3");
+    audio.loop = true;
+    
     open.onclick = function(){
         rose.style.transform = "translateX(-160%)";
         rose.style.rotate = "80deg";
@@ -240,6 +243,7 @@
         next.style.display = "block";
         text.style.opacity = "0%";
         heart.style.display = "block";
+        setTimeout(function(){ audio.play(); }, 1000);
     }
     next.onclick = function(){
         p1.style.transform = "scaleX(-1)";
