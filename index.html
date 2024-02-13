@@ -240,7 +240,7 @@
         rose.style.rotate = "80deg";
         cover.style.transform = "scaleX(-1)";
         open.style.display = "none";
-        next.style.display = "block";
+        setTimeout(function(){ next.style.display = "block"; }, 1000);
         text.style.opacity = "0%";
         heart.style.display = "block";
         setTimeout(function(){ audio.play(); }, 1000);
@@ -248,7 +248,7 @@
     next.onclick = function(){
         p1.style.transform = "scaleX(-1)";
         next.style.display = "none";
-        next2.style.display = "block";
+        setTimeout(function(){ next2.style.display = "block"; }, 1000);
         heart2.style.display = "block";
     }
     next2.onclick = function(){
