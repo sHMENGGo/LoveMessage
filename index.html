@@ -29,9 +29,9 @@
             height: 50vh;
             top: 30vh;
             box-sizing: border-box;
-            box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
             border-radius: 5%;
-            transition: 0.5s linear;
+            transition: 0.5s ease-in;
             transform-origin: 0% 0%;
             transition-delay: 0.5s;
             display: flex;
@@ -86,7 +86,10 @@
             height: 45vh;
             border-radius: 5%;
             mix-blend-mode: hard-light;
+            transition: 0.5s ease-in;
+            transition-delay: 0.4s;
         }
+        
         p {
             position: absolute;
             color: rgba(0, 0, 0, 0.2);
@@ -95,7 +98,7 @@
             width: 50%;
             left: 10%;
             font-family: 'Times New Roman', Times, serif;
-            transition-delay: 0.7s;
+            transition-delay: 0.8s;
             -webkit-text-stroke: 1px rgb(0, 0, 0);
         }
         .heart {
@@ -220,7 +223,9 @@
             top: 30%;
             transform-origin: 0% 0%;
             border-radius: 10%;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)
+            box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+            transition: 0.5s ease-in;
+            transition-delay: 0.5s;
         }
         .string:nth-child(2) {
             top: 40%;
@@ -243,7 +248,7 @@
         <div class="string"></div>
         <div class="string"></div>
         <div class="string"></div>
-        <img class="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYCzS7zcgX4UbncTMdBq7xi3p6G0cjOwvBog&usqp=CAU" alt="">
+        <img class="pic" id="pic5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYCzS7zcgX4UbncTMdBq7xi3p6G0cjOwvBog&usqp=CAU" alt="">
         <img class="heart" id="hp5" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p4">
@@ -252,7 +257,7 @@
         <div class="string"></div>
         <div class="string"></div>
         <div class="string"></div>
-        <img class="pic" src="https://i.imgflip.com/3498os.jpg" alt="">
+        <img class="pic" id="pic4" src="https://i.imgflip.com/3498os.jpg" alt="">
         <img class="heart" id="hp4" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p3">
@@ -261,7 +266,7 @@
         <div class="string"></div>
         <div class="string"></div>
         <div class="string"></div>
-        <img class="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxX463z-lIkYAfkQ2049iI8KJjSumwY2PTPjITpt_1-SvUd3D7DgdpwCh-KFz-PIzHiCg&usqp=CAU" alt="">
+        <img class="pic" id="pic3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxX463z-lIkYAfkQ2049iI8KJjSumwY2PTPjITpt_1-SvUd3D7DgdpwCh-KFz-PIzHiCg&usqp=CAU" alt="">
         <img class="heart" id="hp3" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p2">
@@ -270,7 +275,7 @@
         <div class="string"></div>
         <div class="string"></div>
         <div class="string"></div>
-        <img class="pic" src="https://penmanila.files.wordpress.com/2023/07/dea3cwrv0aamnzt.jpg" alt="">
+        <img class="pic" id="pic2" src="https://penmanila.files.wordpress.com/2023/07/dea3cwrv0aamnzt.jpg" alt="">
         <img class="heart" id="hp2" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="p1">
@@ -279,7 +284,7 @@
         <div class="string"></div>
         <div class="string"></div>
         <div class="string"></div>
-        <img class="pic" src="https://i.pinimg.com/originals/af/85/67/af8567110396b1d2137b02898dfae29c.jpg" alt="">
+        <img class="pic" id="pic1" src="https://i.pinimg.com/originals/af/85/67/af8567110396b1d2137b02898dfae29c.jpg" alt="">
         <img class="heart" id="hp1" src="https://freesvg.org/img/1423475049.png" alt="">
     </div>
     <div class="page" id="cover">
@@ -321,15 +326,24 @@
     let heart3 = document.querySelector("#hp3");
     let heart4 = document.querySelector("#hp4");
     let heart5 = document.querySelector("#hp5");
+    let pic1 = document.querySelector("#pic1");
+    let pic2 = document.querySelector("#pic2");
+    let pic3 = document.querySelector("#pic3");
+    let pic4 = document.querySelector("#pic4");
 
     const audio = new Audio("Josh Hutcherson Whistle (mini loop).mp3");
     audio.loop = true;
     
     open.onclick = function(){
-        rose.style.transform = "translateX(-160%)";
+        rose.style.transform = "translateX(-170%)";
         rose.style.rotate = "80deg";
         rose.style.filter = "drop-shadow(10px -10px 5px rgba(0, 0, 0, 0.5))";
-        cover.style.transform = "scaleX(-1)";
+        cover.style.transform = "scaleX(-1) skewY(-20deg) translate(11.5%, 2.5%)";
+        cover.style.width = "33vh";
+        document.querySelectorAll('.string').forEach(string => {
+        string.style.left = "-1%";
+        });
+        cover.style.boxShadow = "0px 13px 5px rgba(0, 0, 0, 0.3)";
         open.style.display = "none";
         setTimeout(function(){ next.style.display = "block"; }, 1000);
         text.style.opacity = "0%";
@@ -337,25 +351,39 @@
         setTimeout(function(){ audio.play(); }, 1000);
     }
     next.onclick = function(){
-        p1.style.transform = "scaleX(-1)";
+        p1.style.transform = "scaleX(-1) skewY(-20deg) translate(11.5%, 2.5%)";
+        p1.style.width = "33vh";
+        pic1.style.width = "28vh";
+        pic1.style.opacity = "0%";
+        p1.style.boxShadow = "0px 13px 5px rgba(0, 0, 0, 0.2)";
         next.style.display = "none";
         setTimeout(function(){ next2.style.display = "block"; }, 1000);
         heart2.style.display = "block";
     }
     next2.onclick = function(){
-        p2.style.transform = "scaleX(-1)";
+        p2.style.transform = "scaleX(-1) skewY(-20deg) translate(11.5%, 2.5%)";
+        p2.style.width = "33vh";
+        pic2.style.width = "28vh";
+        pic2.style.opacity = "0%";
+        p2.style.boxShadow = "0px 13px 5px rgba(0, 0, 0, 0.1)";
         next2.style.display = "none";
         setTimeout(function(){ next3.style.display = "block"; }, 1000);
         heart3.style.display = "block";
     }
     next3.onclick = function(){
-        p3.style.transform = "scaleX(-1)";
+        p3.style.transform = "scaleX(-1) skewY(-20deg) translate(11.5%, 2.5%)";
+        p3.style.width = "33vh";
+        pic3.style.width = "28vh";
+        pic3.style.opacity = "0%";
         next3.style.display = "none";
         heart4.style.display = "block";
         setTimeout(function(){ next4.style.display = "block"; }, 1000);
     }
     next4.onclick = function(){
-        p4.style.transform = "scaleX(-1)";
+        p4.style.transform = "scaleX(-1) skewY(-20deg) translate(11.5%, 2.5%)";
+        p4.style.width = "33vh";
+        pic4.style.width = "28vh";
+        pic4.style.opacity = "0%";
         next4.style.display = "none";
         heart5.style.display = "block";
     }
